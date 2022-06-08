@@ -7,6 +7,7 @@ def create_container():
         ind += 1
     os.mkdir(f'chroot-jail{ind}')
     os.system(f"cp -r ./chroot-jail/* ./chroot-jail{ind}/")
+    os.system("chmod +x ./CLI.sh")
     with open(f'./chroot-jail{ind}/start.sh', 'w') as start:
         start.write("#!/bin/bash\n")
         start.write(f"hostname {sys.argv[1]}\n")
